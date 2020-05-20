@@ -10,7 +10,16 @@ type DataObject = { [key: string]: any }
 
 export interface TreeConfig {
     id: string
-    parentId: string
+    parentid: string
+}
+
+export interface RootNode {
+    rootNode: TreeNode
+    config: TreeConfig
+
+    addData(objectArray: DataObject, config: TreeConfig): void
+    getNodeById(id: string): TreeNode | undefined
+    createNode(dataObj: DataObject): TreeNode
 }
 
 
@@ -20,6 +29,7 @@ export interface TreeNode {
     children: TreeNode[]
     dataObj: DataObject
     collectionnames: string[]
+    rootNode: TreeNode
 
     //functions
     addChild(childNode: TreeNode): void
@@ -35,10 +45,11 @@ export interface TreeNode {
     isDescendantOf(node: TreeNode): boolean
     isLeaf(): boolean
     removeAllDescendants(): void
+    getNodeById(id: string): TreeNode | undefined
 }
 
 interface TreeBuilder {
-    buildTrees(objectArray: DataObject[], config: TreeConfig): TreeNode[]
+    buildTrees(objectArray: DataObject[], config: TreeConfig): RootNode[]
 }
 
 export default TreeBuilder
