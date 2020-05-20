@@ -1,0 +1,9 @@
+{
+  "name": "@types/tree-util",
+  "version": "1.0.0",
+  "description": "ypeScript definitions for tree-util",
+  "main": "",
+  "scripts": {},
+  "author": "Alec Markkü",
+  "license": "MIT"
+}
